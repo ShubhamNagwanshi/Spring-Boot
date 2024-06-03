@@ -1,0 +1,11 @@
+package com.rays.common;
+
+import java.util.Map;
+
+public class SpringResponse {
+	
+	private String message;
+	private String data;
+	private Map<String, Object> result = new HashMap<String, Object>();
+
+}

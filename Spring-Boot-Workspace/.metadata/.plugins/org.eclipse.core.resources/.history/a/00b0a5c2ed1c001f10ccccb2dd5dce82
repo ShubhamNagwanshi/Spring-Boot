@@ -1,0 +1,51 @@
+package com.rays.service;
+
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.rays.dao.UserDAO;
+import com.rays.dto.UserDTO;
+
+@Service
+@Transactional
+public class UserService {
+
+	@Autowired
+	public UserDAO dao;
+
+	public UserDTO authenticate(String login, String password) {
+		UserDTO dto = dao.findByUniqueKey("login", login);
+		if (dto != null) {
+			if (dto.getPassword().equals(password)) {
+				return dto;
+			}
+		}
+		return null;
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public long add(UserDTO dto) {
+		long pk = dao.add(dto);
+		return pk;
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void update(UserDTO dto) {
+		dao.update(dto);
+	}
+	
+	public void delete(long id) {
+		try {
+			UserDTO dto = findb
+		}
+	}
+	
+	@Transactional(readOnly = true)
+	public UserDTO findById(long pk) {
+		UserDTO dto = dao.findByPk(pk);
+		return dto;
+	}
+}

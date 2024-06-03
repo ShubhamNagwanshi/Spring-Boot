@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\rays software\Spring-Boot-Workspace\.metadata\.plugins\org.eclipse.jdt.core
+80048258.index
+2083702283.index
+3934811322.index
